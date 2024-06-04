@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from './Modal'
 import { closedModal } from '../functions/modal'
 
-export default function ModalTurn({ showModal }: any) {
+export default function ModalTurn({ showModal }: { showModal: boolean }) {
     return (
 
         <Modal id='modalturn' show={showModal}>

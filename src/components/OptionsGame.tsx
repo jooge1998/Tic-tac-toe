@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-export const OptionsGames = ({ turn }: any) => {
+export const OptionsGames = ({ turn }: { turn: string }) => {
 
     return (
       <div className="flex mt-6 justify-center w-full gap-4">

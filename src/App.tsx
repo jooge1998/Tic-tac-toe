@@ -5,21 +5,21 @@ import ConfettiExplosion from 'react-confetti-explosion';
 
 //components
 import { OptionsGames } from './components/OptionsGame';
-import { closedModal, openModal } from './functions/modal';
+import { closedModal } from './functions/modal';
 import { checkWinner } from './functions/game';
 import { Board } from './components/Board';
 import { ButtonReset } from './components/ButtonReset';
 import { ModalWinner } from './components/ModalWinner';
 import ModalTurn from './components/ModalTurn';
 
-export const initialState = [null, null, null, null, null, null, null, null, null]
+export const initialState = ['', '', '', '', '', '', '', '', '']
 
 
 function App() {
   const boardstateLocalStorage = JSON.parse(localStorage?.getItem('boardState') || '[]')
 
-  const [turn, setTurn] = useState(localStorage.getItem('turn') ? localStorage.getItem('turn') || '⭕' : '⭕')
-  const [boardState, setBoardState] = useState(localStorage.getItem('boardState') ? checkWinner(boardstateLocalStorage) ? initialState : boardstateLocalStorage : initialState)
+  const [turn, setTurn] = useState<string>(localStorage.getItem('turn') ? localStorage.getItem('turn') || '⭕' : '⭕')
+  const [boardState, setBoardState] = useState<string[]>(localStorage.getItem('boardState') ? checkWinner(boardstateLocalStorage) ? initialState : boardstateLocalStorage : initialState)
 
 
   function handleWinner() {
@@ -38,7 +38,7 @@ function App() {
       {checkWinner(boardState) && <ConfettiExplosion />}
       <ModalWinner turn={turn} onClickModal={() => handleWinner()} />
 
-      <ModalTurn showModal={boardState.every((value: any) => value === null)} />
+      <ModalTurn showModal={boardState.every((value: any) => value.length === 0)} />
     </div>
   )
 }

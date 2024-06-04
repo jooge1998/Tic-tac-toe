@@ -3,7 +3,7 @@ import Modal from "./Modal"
 
 
 //crear modal para mostrar el resultado
-export const ModalWinner = ({ turn, onClickModal }: any) => {
+export const ModalWinner = ({ turn, onClickModal }: {turn: string, onClickModal: () => void}) => {
   return (
 
     <Modal id='modalwinner'>

@@ -1,7 +1,9 @@
 import React from "react"
 import { initialState } from '../App'
 
-export const ButtonReset = ({setBoardState}: any) => {
+export const ButtonReset = ({ setBoardState }: {
+    setBoardState: (value: string[]) => void;
+}) => {
     return (
         <button onClick={() => {
             setBoardState(initialState)
